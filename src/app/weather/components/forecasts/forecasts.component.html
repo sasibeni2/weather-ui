@@ -1,0 +1,34 @@
+<div class="card-container">
+    <ng-container *ngIf="forecastWeather">
+        <mat-card *ngFor="let day of forecastWeather" class="time" (click)="selectDay(day)" [class.active]="day === currentDay">
+            <div class="value-row">
+                <span>Maximális Hömérséklet:</span>
+                <span><strong>{{day.maxtempC}} °C</strong></span>
+                
+            </div>
+            <div class="value-row">
+                <span>Minimum Hőmérséklet:</span>
+                <span><strong>{{day.mintempC}} °C</strong></span>
+                
+            </div>
+            <div class="value-row">
+                <span>Eső valószínüség:</span>
+                <span><strong>{{day.dailyRain}} %</strong></span>
+                
+            </div>
+            <div class="value-row">
+                <span>Csapadék:</span>
+                <span><strong>{{day.totalPrecipeMm}} mm</strong></span>
+                
+            </div>
+            <span class="icon-with-title">
+                <img src="{{day.condition.icon}}">
+            </span>
+            <p>
+                <strong>{{day.date}}</strong>
+            </p>
+         
+        </mat-card>
+    </ng-container>
+
+</div>

@@ -1,0 +1,49 @@
+<mat-card>
+    <ng-container *ngIf="currentWeather; else loading">
+        <div class="value-row">
+            <span>Hőmérséklet</span>
+            <span>
+                <strong>{{currentWeather.tempC}} °C / {{currentWeather.tempF}} °F </strong>
+            </span>
+        </div>
+        <div class="value-row">
+            <span>Szél</span>
+            <span>
+                <strong>{{currentWeather.windKph}} Km/H / {{currentWeather.windMph}} Mp/H </strong>
+            </span>
+        </div>
+        <div class="value-row">
+            <span>Csapadék</span>
+            <span>
+                <strong>{{ currentWeather.precipmm | presentWithDefault: 0 }} mm </strong>
+             </span>
+        </div>
+        <div class="value-row">
+            <span>Páratartalom</span>
+            <span>
+                <strong>{{ currentWeather.humidity}} % </strong>
+            </span>
+        </div>
+
+        <div class="icon-with-title">
+            <img src="{{currentWeather.condition.icon}}" alt="ikonnak kellene megjelnni">
+            <span> {{currentWeather.condition.text}}</span>
+        </div>
+        <p>
+            utolsó frisssítés idöpontja :
+            <span>
+                {{currentWeather.lastUpdate}}
+            </span>
+        </p>
+
+
+    </ng-container>
+
+        <ng-template #loading>
+        <div class="loading-container">
+            <mat-spinner></mat-spinner>
+        </div>
+
+    </ng-template>
+
+</mat-card>

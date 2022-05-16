@@ -1,0 +1,51 @@
+<div class="card-container">
+    <ng-container *ngIf="dayWeather">
+
+        <mat-card *ngFor="let hours of dayWeather!.hours" class="time-card">
+            <p class="date">
+                <span class="hour">
+                    {{ hours.time | date: 'HH:mm' }}
+                </span>
+            </p>
+
+            <p>
+
+                Hőmérséklet:
+                <br>
+                <strong>
+                    <span>{{ hours.tempC }}</span>
+                    °C
+
+                    <br>
+
+                    <span>{{ hours.tempF }}</span>
+                    °F
+                </strong>
+
+            </p>
+            <p>
+                csapadék:
+                <br>
+                <strong>
+                    <span>{{ hours.precipMm}}</span>
+                    mm
+                </strong>
+            </p>
+            <p>
+                szél:
+                <br>
+                <strong>
+                    <span>{{hours.wind}}</span>
+                    km/h
+                </strong>
+            </p>
+            <div class="icon-with-title">
+                <img src="{{hours.condition.icon}}" alt="ikonnak kellene megjelnni">
+            </div>
+
+
+
+        </mat-card>
+
+    </ng-container>
+</div>

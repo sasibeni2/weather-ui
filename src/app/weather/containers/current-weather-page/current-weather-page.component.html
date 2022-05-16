@@ -1,0 +1,10 @@
+<div class="header">
+    <h1>Aktuális időjárás</h1>
+    <p>{{ (weatherData$ | async)?.location?.name }}</p>
+</div>
+
+<div class="content">
+    <app-current-weather-data [currentWeather]="(weatherData$ | async)?.current"></app-current-weather-data>
+
+    <app-current-hour [forecastWeather]="(weatherData$ | async)?.forecasts"></app-current-hour>
+</div>

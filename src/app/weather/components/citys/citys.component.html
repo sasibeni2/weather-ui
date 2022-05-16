@@ -1,0 +1,15 @@
+<div class="header">
+    <h1>Kérem válasszon települést!</h1>
+    
+</div>
+
+<div class="card-container">
+<div class="button" *ngFor="let city of data">
+
+   <button mat-raised-button (click)="selectCity(city)" >{{city}}</button>
+    
+</div>
+</div>
+<div class="picture">
+    <img src="\assets\11.jpg" alt="">
+</div>    

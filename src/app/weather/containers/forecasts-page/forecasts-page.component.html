@@ -1,0 +1,19 @@
+<div class="header">
+    <h1>Hosszútávú előrejelzés</h1>
+    <p>{{ (weatherData$ | async)?.location?.region }}</p>
+</div>
+
+<div class="content">
+    <app-forecasts [forecastWeather]="(weatherData$ | async)?.forecasts" (onSelectDay)="selectDay($event)"></app-forecasts>
+
+    <ng-container *ngIf="currentDay; else loading">
+        <app-weather-hour [dayWeather]="currentDay"></app-weather-hour>
+    </ng-container>
+
+    <ng-template #loading>
+        <div class="loading-container" *ngIf="hasSelectedDay">
+            <mat-spinner></mat-spinner>
+        </div>
+
+    </ng-template>
+</div>

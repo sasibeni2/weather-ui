@@ -1,0 +1,22 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over">
+        <mat-toolbar>
+            <img src="assets/1.jpg">
+        </mat-toolbar>
+        <mat-nav-list>
+            <ng-container *ngFor="let menuItem of menuItems">
+            
+                    <a mat-list-item [routerLink]="menuItem.link">{{menuItem.title}}</a>
+              
+            </ng-container>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-navbar (onToggleSidenav)="sidenav.toggle()"></app-navbar>
+
+        <div class="main">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
